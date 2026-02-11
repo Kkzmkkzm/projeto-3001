@@ -4,14 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Quiz Genética Multiplayer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- ------------------ INTRO NA PLATAFORMA ----------------- -->
 
+<!-- FUNDO DO JOGO -->
+<div class="game-bg"></div>
+
+<!-- INTRO -->
 <div id="intro-box" class="intro-screen">
 
-    <div class="intro-card">
+
+    <div class="game-panel intro-card">
         <h1>🧬 BioTech Quiz</h1>
         <h2>Tecnologia aplicada à Genética</h2>
 
@@ -26,7 +32,7 @@
             Kauan Nascimento
         </div>
 
-        <button onclick="enterGame()" class="start-btn">
+        <button onclick="enterGame()" class="pixel-btn big-btn">
             ▶ Iniciar Experimento
         </button>
     </div>
@@ -34,49 +40,63 @@
 </div>
 
 
-<div class="container">
+<!-- GAME CONTAINER -->
+<div class="game-container">
 
-    <h1>🧬 Quiz de Genética</h1>
+    <div class="game-panel">
 
-    <!-- TELA INICIAL DO GAME -->
-    <div id="start-box">
-        <h3>Digite os nomes dos jogadores</h3>
+        <h1 class="title">🧬 Quiz de Genética</h1>
 
-        <input id="p1" placeholder="Jogador 1">
-        <input id="p2" placeholder="Jogador 2">
-        <input id="p3" placeholder="Jogador 3">
+        <!-- START -->
+        <div id="start-box">
+            <h3>Digite os nomes dos jogadores</h3>
 
-        <button onclick="startGame()">Começar</button>
-    </div>
+            <input id="p1" placeholder="Jogador 1">
+            <input id="p2" placeholder="Jogador 2">
+            <input id="p3" placeholder="Jogador 3">
 
-    <!-- QUIZ -->
-    <div id="quiz-box" class="hidden">
-
-        <h3 id="player-turn"></h3>
-
-        <div class="top">
-            <span id="progress"></span>
-            <span id="timer"></span>
+            <button onclick="startGame()" class="pixel-btn">
+                Começar
+            </button>
         </div>
 
-        <div class="bar">
-            <div id="bar-fill"></div>
+        <!-- QUIZ -->
+        <div id="quiz-box" class="hidden">
+
+            <h3 id="player-turn"></h3>
+
+            <div class="top">
+                <span id="progress"></span>
+                <span id="timer"></span>
+            </div>
+
+            <div class="bar">
+                <div id="bar-fill"></div>
+            </div>
+
+            <h2 id="question"></h2>
+
+            <div id="answers" class="answers"></div>
         </div>
 
-        <h2 id="question"></h2>
+        <!-- RESULT -->
+        <div id="result-box" class="hidden">
+            <h2>🏆 Ranking Final</h2>
+            <div id="ranking"></div>
 
-        <div id="answers" class="answers"></div>
+            <button onclick="location.reload()" class="pixel-btn">
+                Jogar novamente
+            </button>
+        </div>
+
     </div>
 
-    <!-- RESULTADO -->
-    <div id="result-box" class="hidden">
-        <h2>🏆 Ranking Final</h2>
-        <div id="ranking"></div>
-        <button onclick="location.reload()">Jogar novamente</button>
-    </div>
+    <!-- PERSONAGEM -->
+    <div class="character"></div>
 
 </div>
 
 <script src="script.js"></script>
 </body>
+
 </html>

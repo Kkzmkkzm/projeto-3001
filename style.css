@@ -1,66 +1,10 @@
-/* ===============================
-   RESET
-=============================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: "Segoe UI", Roboto, Arial, sans-serif;
-}
-
-
-/* ===============================
-   FUNDO
-=============================== */
-
+/* ====== RESET ====== */
 body{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    margin:0;
+    font-family:'Press Start 2P', cursive;
     overflow:hidden;
+    background-color: #000000;
 }
-
-
-/* bolhas animadas no fundo */
-
-body::before,
-body::after{
-    content:"";
-    position:absolute;
-    width:600px;
-    height:600px;
-    border-radius:50%;
-    filter:blur(120px);
-    opacity:.4;
-    z-index:-1;
-}
-
-body::before{
-    background:#00ffcc;
-    top:-150px;
-    left:-150px;
-    animation: float 10s infinite alternate ease-in-out;
-}
-
-body::after{
-    background:#00aaff;
-    bottom:-150px;
-    right:-150px;
-    animation: float 12s infinite alternate ease-in-out;
-}
-
-@keyframes float{
-    from{ transform:translateY(0); }
-    to{ transform:translateY(40px); }
-}
-/* =====================================================
-   INTRO RESPONSIVA — FUNCIONA EM CELULAR, TABLET E PC
-   ===================================================== */
-
 .intro-screen{
     position:fixed;
     inset:0;
@@ -71,10 +15,8 @@ body::after{
 
     padding:20px;
 
-    background:#000;
-    z-index:999;
+    background:image url("assets/background.jpg")
 
-    animation: fadeIn .8s ease;
 }
 
 
@@ -84,7 +26,7 @@ body::after{
 
     width:min(92vw, 520px); /* ⭐ RESPONSIVO */
 
-    background:rgba(255,255,255,0.06);
+    background:rgba(255, 255, 255, 0.196);
     backdrop-filter:blur(12px);
 
     padding:clamp(25px, 5vw, 50px);
@@ -146,295 +88,119 @@ body::after{
     transition:.25s;
 }
 
-/* ---------------- BOTÃO INICIAL ---------------- */
-
-.start-btn{
-
-    width:100%;
-
-    min-height:60px; /* ⭐ altura confortável pro dedo */
-
-    padding:18px 24px;
-
-    font-size:clamp(16px, 4.5vw, 20px);
-    font-weight:700;
-
-    border:none;
-    border-radius:14px;
-
-    background-color: #27ae60;
-    color:#000;
-
-    cursor:pointer;
-
-    letter-spacing:.5px;
-
-    
-
-    transition:
-        transform .15s,
-        box-shadow .2s,
-        filter .2s;
-}
-
-
-/* HOVER (desktop) */
 .start-btn:hover{
-    transform:translateY(-2px) scale(1.03);
-    box-shadow:0 12px 30px rgba(1, 4, 3, 0.5);
+    transform:scale(1.05);
+    box-shadow:0 0 20px #00ffc8;
+}
+/* ====== FUNDO DO JOGO ====== */
+.game-bg{
+    position:fixed;
+    inset:0;
+    background:url('assets/background.jpg') center/cover no-repeat;
+    z-index:-1;
 }
 
-
-/* CLICK (efeito físico) */
-.start-btn:active{
-    transform:scale(.96);
-    filter:brightness(.9);
+/* ====== CONTAINER ====== */
+.game-container{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    padding:20px;
 }
 
-
-
-/* ---------------- ANIMAÇÕES ---------------- */
-
-@keyframes fadeIn{
-    from{opacity:0}
-    to{opacity:1}
-}
-
-@keyframes float{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-8px)}
-}
-
-
-/* ---------------- AJUSTES EXTRA MOBILE ---------------- */
-
-@media (max-width:480px){
-
-    .intro-card{
-        border-radius:16px;
-    }
-
-}
-
-
-
-
-/* ===============================
-   CARD PRINCIPAL
-=============================== */
-
-.container{
-    width:420px;
-    padding:30px;
-
-    border-radius:18px;
-
-    background: rgba(255,255,255,0.07);
-    backdrop-filter: blur(15px);
-
-    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
-
+/* ====== PAINEL ====== */
+.game-panel{
+    background:#6b3e4e;
+    padding:40px;
+    width:90%;
+    max-width:800px;
+    border-radius:12px;
+    box-shadow:8px 8px 0 #3e1f2c;
     color:white;
+}
+
+/* ====== TITULO ====== */
+.title{
     text-align:center;
-
-    animation: fadeIn .6s ease;
+    margin-bottom:30px;
 }
 
-@keyframes fadeIn{
-    from{ opacity:0; transform:translateY(15px); }
-    to{ opacity:1; transform:translateY(0); }
-}
-
-
-/* ===============================
-   TÍTULO
-=============================== */
-
-h1{
-    margin-bottom:20px;
-    font-size:26px;
-    letter-spacing:1px;
-}
-
-
-/* ===============================
-   INPUTS
-=============================== */
-
+/* ====== INPUTS ====== */
 input{
     width:100%;
-    padding:10px;
-    margin:6px 0;
-
-    border-radius:10px;
-    border:none;
-    outline:none;
-
-    background:#ffffff10;
-    color:white;
+    padding:12px;
+    margin:10px 0;
+    border:3px solid black;
+    font-family:inherit;
 }
 
-input::placeholder{
-    color:#ddd;
-}
-
-
-/* ===============================
-   BOTÕES
-=============================== */
-
-button{
+/* ====== BOTÃO PIXEL ====== */
+.pixel-btn{
+    background:#f4c430;
+    padding:15px;
+    margin-top:15px;
     width:100%;
-    padding:11px;
-    margin-top:10px;
-
-    border:none;
-    border-radius:10px;
-
-    background: linear-gradient(45deg,#00ffcc,#00aaff);
-    color:#000;
-
-    font-weight:bold;
+    border:3px solid black;
     cursor:pointer;
-
-    transition: all .25s;
+    box-shadow:4px 4px 0 black;
+    font-family:inherit;
+    transition:0.1s;
 }
 
-button:hover{
-    transform: scale(1.05);
-    filter:brightness(1.1);
+.pixel-btn:active{
+    transform:translate(4px,4px);
+    box-shadow:0 0 0 black;
 }
 
-
-/* ===============================
-   ÁREA PERGUNTAS
-=============================== */
-
-.answers{
-    margin-top:15px;
+.big-btn{
+    font-size:18px;
+    padding:20px;
 }
 
-.answers button{
-    background:#ffffff15;
-    color:white;
-    margin:6px 0;
+/* ====== PERSONAGEM ====== */
+.character{
+    position:absolute;
+    bottom:0;
+    left:30px;
+    width:120px;
+    height:120px;
+    background:url('character.gif') no-repeat center/contain;
 }
 
-.answers button:hover{
-    background:#00aaff40;
-}
-
-.correct{
-    background:#27ae60 !important;
-}
-
-.wrong{
-    background:#e74c3c !important;
-}
-
-
-/* ===============================
-   TOPO (timer + progresso)
-=============================== */
-
-.top{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:10px;
-    font-size:14px;
-}
-
-
-/* ===============================
-   BARRA DE PROGRESSO
-=============================== */
-
-.bar{
-    width:100%;
-    height:7px;
-    background:#ffffff20;
-    border-radius:20px;
-    margin-bottom:18px;
-    overflow:hidden;
-}
-
-#bar-fill{
-    height:100%;
-    width:0%;
-
-    background: linear-gradient(90deg,#00ffcc,#00aaff);
-    border-radius:20px;
-
-    transition: width .35s ease;
-}
-
-
-/* ===============================
-   PERGUNTA
-=============================== */
-
-#question{
-    margin:15px 0;
-    min-height:60px;
-    animation: slide .25s ease;
-}
-
-@keyframes slide{
-    from{opacity:0; transform:translateX(8px);}
-    to{opacity:1; transform:translateX(0);}
-}
-
-
-/* ===============================
-   RANKING
-=============================== */
-
-#ranking{
-    margin-top:15px;
-}
-
-.rank-item{
-    padding:10px;
-    margin:7px 0;
-
-    border-radius:10px;
-    background:#ffffff10;
-
-    font-weight:bold;
-}
-
-
-/* medalhas destaque */
-
-.rank-item:nth-child(1){
-    background:#ffd70040;
-}
-
-.rank-item:nth-child(2){
-    background:#c0c0c040;
-}
-
-.rank-item:nth-child(3){
-    background:#cd7f3240;
-}
-
-
-/* ===============================
-   UTIL
-=============================== */
-
+/* ====== QUIZ ====== */
 .hidden{
     display:none;
 }
 
+.answers button{
+    background:#f4c430;
+    border:3px solid black;
+    padding:12px;
+    margin:10px 0;
+    width:100%;
+    font-family:inherit;
+    cursor:pointer;
+    box-shadow:4px 4px 0 black;
+}
 
-/* ===============================
-   RESPONSIVO
-=============================== */
+.answers button:active{
+    transform:translate(4px,4px);
+    box-shadow:0 0 0 black;
+}
 
-@media(max-width:480px){
-    .container{
-        width:95%;
-        padding:20px;
-    }
+/* ====== TIMER BAR ====== */
+.bar{
+    height:15px;
+    background:#222;
+    margin:15px 0;
+    border:2px solid black;
+}
+
+#bar-fill{
+    height:100%;
+    background:#00ff99;
+    width:100%;
+    transition:width .3s linear;
 }
