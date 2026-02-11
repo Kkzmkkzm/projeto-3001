@@ -1,0 +1,440 @@
+/* ===============================
+   RESET
+=============================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+
+/* ===============================
+   FUNDO
+=============================== */
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    overflow:hidden;
+}
+
+
+/* bolhas animadas no fundo */
+
+body::before,
+body::after{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:.4;
+    z-index:-1;
+}
+
+body::before{
+    background:#00ffcc;
+    top:-150px;
+    left:-150px;
+    animation: float 10s infinite alternate ease-in-out;
+}
+
+body::after{
+    background:#00aaff;
+    bottom:-150px;
+    right:-150px;
+    animation: float 12s infinite alternate ease-in-out;
+}
+
+@keyframes float{
+    from{ transform:translateY(0); }
+    to{ transform:translateY(40px); }
+}
+/* =====================================================
+   INTRO RESPONSIVA — FUNCIONA EM CELULAR, TABLET E PC
+   ===================================================== */
+
+.intro-screen{
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:#000;
+    z-index:999;
+
+    animation: fadeIn .8s ease;
+}
+
+
+/* ---------------- CARD ---------------- */
+
+.intro-card{
+
+    width:min(92vw, 520px); /* ⭐ RESPONSIVO */
+
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(12px);
+
+    padding:clamp(25px, 5vw, 50px);
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 0 40px rgba(0,0,0,.6);
+
+    animation: float 4s infinite ease-in-out;
+}
+
+
+/* ---------------- TIPOGRAFIA RESPONSIVA ---------------- */
+
+.intro-card h1{
+    font-size:clamp(26px, 6vw, 42px);
+    margin-bottom:10px;
+    color:#fff;
+}
+
+.intro-card h2{
+    font-size:clamp(14px, 3.5vw, 18px);
+    font-weight:300;
+    margin-bottom:20px;
+    color:#fff;
+}
+
+.intro-card p{
+    font-size:clamp(13px, 3.5vw, 15px);
+    line-height:1.5;
+    margin-bottom:25px;
+    color:#fff;
+}
+
+.team{
+    font-size:clamp(12px, 3vw, 14px);
+    margin-bottom:25px;
+    color:#fff;
+    opacity:.85;
+}
+
+
+/* ---------------- BOTÃO TOUCH FRIENDLY ---------------- */
+
+.start-btn{
+    width:100%;
+    padding:16px;
+    font-size:clamp(14px, 4vw, 16px);
+
+    border:none;
+    border-radius:12px;
+
+    background:#00ffc8;
+    color:#000;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+/* ---------------- BOTÃO INICIAL ---------------- */
+
+.start-btn{
+
+    width:100%;
+
+    min-height:60px; /* ⭐ altura confortável pro dedo */
+
+    padding:18px 24px;
+
+    font-size:clamp(16px, 4.5vw, 20px);
+    font-weight:700;
+
+    border:none;
+    border-radius:14px;
+
+    background-color: #27ae60;
+    color:#000;
+
+    cursor:pointer;
+
+    letter-spacing:.5px;
+
+    
+
+    transition:
+        transform .15s,
+        box-shadow .2s,
+        filter .2s;
+}
+
+
+/* HOVER (desktop) */
+.start-btn:hover{
+    transform:translateY(-2px) scale(1.03);
+    box-shadow:0 12px 30px rgba(1, 4, 3, 0.5);
+}
+
+
+/* CLICK (efeito físico) */
+.start-btn:active{
+    transform:scale(.96);
+    filter:brightness(.9);
+}
+
+
+
+/* ---------------- ANIMAÇÕES ---------------- */
+
+@keyframes fadeIn{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-8px)}
+}
+
+
+/* ---------------- AJUSTES EXTRA MOBILE ---------------- */
+
+@media (max-width:480px){
+
+    .intro-card{
+        border-radius:16px;
+    }
+
+}
+
+
+
+
+/* ===============================
+   CARD PRINCIPAL
+=============================== */
+
+.container{
+    width:420px;
+    padding:30px;
+
+    border-radius:18px;
+
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+
+    color:white;
+    text-align:center;
+
+    animation: fadeIn .6s ease;
+}
+
+@keyframes fadeIn{
+    from{ opacity:0; transform:translateY(15px); }
+    to{ opacity:1; transform:translateY(0); }
+}
+
+
+/* ===============================
+   TÍTULO
+=============================== */
+
+h1{
+    margin-bottom:20px;
+    font-size:26px;
+    letter-spacing:1px;
+}
+
+
+/* ===============================
+   INPUTS
+=============================== */
+
+input{
+    width:100%;
+    padding:10px;
+    margin:6px 0;
+
+    border-radius:10px;
+    border:none;
+    outline:none;
+
+    background:#ffffff10;
+    color:white;
+}
+
+input::placeholder{
+    color:#ddd;
+}
+
+
+/* ===============================
+   BOTÕES
+=============================== */
+
+button{
+    width:100%;
+    padding:11px;
+    margin-top:10px;
+
+    border:none;
+    border-radius:10px;
+
+    background: linear-gradient(45deg,#00ffcc,#00aaff);
+    color:#000;
+
+    font-weight:bold;
+    cursor:pointer;
+
+    transition: all .25s;
+}
+
+button:hover{
+    transform: scale(1.05);
+    filter:brightness(1.1);
+}
+
+
+/* ===============================
+   ÁREA PERGUNTAS
+=============================== */
+
+.answers{
+    margin-top:15px;
+}
+
+.answers button{
+    background:#ffffff15;
+    color:white;
+    margin:6px 0;
+}
+
+.answers button:hover{
+    background:#00aaff40;
+}
+
+.correct{
+    background:#27ae60 !important;
+}
+
+.wrong{
+    background:#e74c3c !important;
+}
+
+
+/* ===============================
+   TOPO (timer + progresso)
+=============================== */
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+    font-size:14px;
+}
+
+
+/* ===============================
+   BARRA DE PROGRESSO
+=============================== */
+
+.bar{
+    width:100%;
+    height:7px;
+    background:#ffffff20;
+    border-radius:20px;
+    margin-bottom:18px;
+    overflow:hidden;
+}
+
+#bar-fill{
+    height:100%;
+    width:0%;
+
+    background: linear-gradient(90deg,#00ffcc,#00aaff);
+    border-radius:20px;
+
+    transition: width .35s ease;
+}
+
+
+/* ===============================
+   PERGUNTA
+=============================== */
+
+#question{
+    margin:15px 0;
+    min-height:60px;
+    animation: slide .25s ease;
+}
+
+@keyframes slide{
+    from{opacity:0; transform:translateX(8px);}
+    to{opacity:1; transform:translateX(0);}
+}
+
+
+/* ===============================
+   RANKING
+=============================== */
+
+#ranking{
+    margin-top:15px;
+}
+
+.rank-item{
+    padding:10px;
+    margin:7px 0;
+
+    border-radius:10px;
+    background:#ffffff10;
+
+    font-weight:bold;
+}
+
+
+/* medalhas destaque */
+
+.rank-item:nth-child(1){
+    background:#ffd70040;
+}
+
+.rank-item:nth-child(2){
+    background:#c0c0c040;
+}
+
+.rank-item:nth-child(3){
+    background:#cd7f3240;
+}
+
+
+/* ===============================
+   UTIL
+=============================== */
+
+.hidden{
+    display:none;
+}
+
+
+/* ===============================
+   RESPONSIVO
+=============================== */
+
+@media(max-width:480px){
+    .container{
+        width:95%;
+        padding:20px;
+    }
+}
